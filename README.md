@@ -30,7 +30,7 @@ Key performance indicatos
 •	Maximizing average order value and average basket size 
 
 Data processing
-As the data is denormalized, the first step was to normalize the dataset so querying the data on Postgres SQL 
+As the data is denormalized, the first step after importing the dataset to a local PostgresSQL database was to normalize the dataset so querying the data
 will be more streamlined and improve querying speed.
 </pre>
 
