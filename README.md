@@ -28,5 +28,8 @@ Initial exploratory questions
 Key performance indicatos
 •	Sales per square foot is a key KPI in measuring a store’s efficiency in driving sales in the space allotted to them
 •	Maximizing average order value and average basket size 
+
+Data processing
+As the data is denormalized, the first step was to normalize the dataset so quering the data on Postgres SQL will be more streamlined and improve querying speed.
 </pre>
 
