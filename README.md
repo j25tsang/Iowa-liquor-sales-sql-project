@@ -1,6 +1,8 @@
 # Iowa-liquor-sales-sql-project
-
-Dataset source: https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy
+<pre>
+Dataset sources: 
+Iowa Liquor sales data https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy
+Iowa Liquor products data https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Products/gckp-fe7r </pre>
 
 <pre>
 Business challenge
@@ -33,5 +35,8 @@ Key performance indicators
 Data processing
 As the data is denormalized, the first step after importing the dataset to a local PostgresSQL database was to normalize the dataset
 so that querying the data would be more streamlined and improve querying speed.
+
+Data cleaning
+As there were a lot of missing fields, null values, and inconsistency across table relationships. , significant time was spen
 </pre>
 
