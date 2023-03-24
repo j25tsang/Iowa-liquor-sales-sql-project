@@ -1,5 +1,7 @@
 # Iowa-liquor-sales-sql-project
 
+Dataset source: https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy
+
 <pre>
 Business challenge
 An aspiring store owner in Iowa wants to open up a new store at a prime location that would enable them to maximize sales and profits. 
