@@ -1,5 +1,9 @@
 # Iowa-liquor-sales-sql-project
 <pre>
+This is a personal project using public liquor sales data provided by the Iowa Alcoholic Beverages Division.
+The dataset comprises a comprehensive record of all the purchase transactions made by Iowa Class "E" liquor licensees for spirits,
+including product details and date of purchase, starting from January 1, 2012, up to the present time.
+
 CSV Dataset sources imported to PostgresSQL database: 
 Iowa Liquor sales data https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy
 Iowa Liquor products data https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Products/gckp-fe7r </pre>
