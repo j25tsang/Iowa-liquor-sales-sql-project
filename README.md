@@ -1,6 +1,6 @@
 # Iowa-liquor-sales-sql-project
 <pre>
-This is a personal project using public liquor sales data provided by the Iowa Alcoholic Beverages Division.
+This is a personal project using public liquor sales data provided by the Iowa ABD (Alcoholic Beverages Division)
 
 The dataset comprises a comprehensive record of all the purchase transactions made by Iowa Class "E" liquor licensees for spirits,
 including product details and date of purchase, starting from January 1, 2012, up to the present time.
@@ -18,7 +18,9 @@ My objective is to support a hypothetical liquor store owner based in Iowa in th
 Additionally, I plan to provide general recommendations for suitable locations to the business owner 
 as well as provide product recommendations based on demand an sales trends
 
-Questions to help define objective 
+Using the dataset provided by ABD, I hope to discover actionable insights that will help the store owner make an informed decision.
+
+Questions to help define the objective 
 Prime store location factors
 •	Population density
 •	Demographics of the area
