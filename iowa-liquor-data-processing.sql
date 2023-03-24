@@ -531,19 +531,3 @@ DELIMITER ','
 CSV HEADER
 ENCODING 'UTF8';
 
--- 
-SELECT * from store as s
-LEFT JOIN store_sqft as f
-ON s.store_id = f.store_id
-WHERE s.zip_code != f.zip_code
-
-UPDATE store
-
-SELECT * from store as s
-LEFT JOIN store_sqft as f
-ON s.store_id = f.store_id
-
-
-
-select * from store
-where store ilike '%station%'
