@@ -1,6 +1,6 @@
 # Iowa-liquor-sales-sql-project
 <pre>
-Dataset sources: 
+CSV Dataset sources imported to PostgresSQL database: 
 Iowa Liquor sales data https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy
 Iowa Liquor products data https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Products/gckp-fe7r </pre>
 
