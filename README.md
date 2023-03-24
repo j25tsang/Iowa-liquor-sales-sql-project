@@ -42,7 +42,7 @@ Key performance indicators
 Data processing
 As the data is denormalized, the first step after importing the dataset to a local PostgresSQL database
 was to normalize the dataset into multiple tables (assigning appropriate primary and foreign keys)
-so that querying the data would be more streamlined and improve querying speed.
+to eliminate redundant rows/repeated values to improve querying speed and ensure data integrity
 
 Data cleaning
 As there were a lot of missing fields, null values, and inconsistency across table relationships, 
