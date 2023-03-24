@@ -6,8 +6,8 @@ The dataset comprises a comprehensive record of all the purchase transactions ma
 including product details and date of purchase, starting from January 1, 2012, up to the present time.
 
 CSV Dataset sources imported to PostgresSQL database: 
-Iowa Liquor sales data https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy
-Iowa Liquor products data https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Products/gckp-fe7r </pre>
+Iowa Liquor sales data - https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Sales/m3tr-qhgy
+Iowa Liquor products data - https://data.iowa.gov/Sales-Distribution/Iowa-Liquor-Products/gckp-fe7r </pre>
 
 <pre>
 Business challenge
