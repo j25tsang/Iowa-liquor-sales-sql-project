@@ -38,7 +38,7 @@ was to normalize the dataset so that querying the data would be more streamlined
 
 Data cleaning
 As there were a lot of missing fields, null values, and inconsistency across table relationships, 
-significant time was spent cleaning the data before conducting  the data analysis. 
+significant time was spent cleaning the data before conducting any data analysis. 
 
 </pre>
 
