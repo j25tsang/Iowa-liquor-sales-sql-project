@@ -12,32 +12,24 @@ CREATE TABLE IF NOT EXISTS public.city
     CONSTRAINT pk_city PRIMARY KEY (city, county, year)
 );
 
+CREATE TABLE IF NOT EXISTS public.license
+(
+    license_id character varying COLLATE pg_catalog."default" NOT NULL,
+    store_id integer,
+    license_cost numeric,
+    CONSTRAINT pk_license_id PRIMARY KEY (license_id)
+);
+
 CREATE TABLE IF NOT EXISTS public.orders
 (
     order_id character varying(50) COLLATE pg_catalog."default" NOT NULL,
     date date,
     store_id integer,
-    store character varying COLLATE pg_catalog."default",
-    address character varying COLLATE pg_catalog."default",
-    city character varying COLLATE pg_catalog."default",
-    zip_code character varying(20) COLLATE pg_catalog."default",
-    location character varying(50) COLLATE pg_catalog."default",
-    county_id character varying(20) COLLATE pg_catalog."default",
-    county character varying COLLATE pg_catalog."default",
-    category_id character varying(20) COLLATE pg_catalog."default",
-    category character varying(50) COLLATE pg_catalog."default",
     vendor_id integer,
-    vendor character varying COLLATE pg_catalog."default",
     product_id integer,
-    product character varying COLLATE pg_catalog."default",
-    pack_size integer,
-    bottle_ml integer,
-    state_bottle_cost numeric,
-    state_bottle_price numeric,
     order_qty numeric,
     order_cost numeric,
     order_liters numeric,
-    order_gallons numeric,
     CONSTRAINT temp_pkey PRIMARY KEY (order_id)
 );
 
@@ -74,19 +66,8 @@ CREATE TABLE IF NOT EXISTS public.store
     latitude numeric(10, 7),
     longitude numeric(10, 7),
     store_type character varying COLLATE pg_catalog."default",
-    CONSTRAINT store_pkey PRIMARY KEY (store_id)
-);
-
-CREATE TABLE IF NOT EXISTS public.store_sqft
-(
-    store_id integer NOT NULL,
-    store character varying COLLATE pg_catalog."default",
-    zip_code integer,
-    county character varying COLLATE pg_catalog."default",
-    license_id character varying COLLATE pg_catalog."default",
-    license_cost numeric,
     retail_sqft numeric,
-    CONSTRAINT store_sqft_pkey PRIMARY KEY (store_id)
+    CONSTRAINT store_pkey PRIMARY KEY (store_id)
 );
 
 CREATE TABLE IF NOT EXISTS public.vendor
@@ -95,6 +76,13 @@ CREATE TABLE IF NOT EXISTS public.vendor
     vendor character varying COLLATE pg_catalog."default",
     CONSTRAINT vendorss_pkey PRIMARY KEY (vendor_id)
 );
+
+ALTER TABLE IF EXISTS public.license
+    ADD CONSTRAINT fk_store_id FOREIGN KEY (store_id)
+    REFERENCES public.store (store_id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION;
+
 
 ALTER TABLE IF EXISTS public.orders
     ADD CONSTRAINT fk_product_id FOREIGN KEY (product_id)
