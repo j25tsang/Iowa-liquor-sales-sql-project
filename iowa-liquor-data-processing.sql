@@ -502,17 +502,20 @@ ORDER BY product_id, date)
 
 ---------------------------------------------------------------------------
 --here was looking at analyzing licensing fee and retail_sqft . 
--- decided to CREATE a LICENSING table instead of store_sqft table. 
+-- decided to CREATE a LICENSE table instead of store_sqft table. 
 -- make sure the store names are consistent. eliminate redundant columns.
 -- retail_sqft column belongs in STORE table while licensing cost will be alongside licensing_ID
 -- how to: alter STORE table add column retail_sqft then 
 --can always create views or CTE if needed to re-use the same JOIN queries often
+  
+-- Add column retail_sqft in store table
+ALTER TABLE store
+ADD COLUMN retail_sqft decimal
 
---add table column then use update set command
-alter table A add column3 [yourdatatype];
-
-update A set column3 = (select column3 from B where A.Column1 = B.Column2) 
-  where exists (select column3 from B where A.Column1 = B.Column2)
+--update column retail_sqft with values from store_sqft table
+UPDATE store
+Set retail_sqft = (SELECT retail_sqft FROM store_sqft WHERE store.store_id = store_sqft.store_id)
+	WHERE EXISTS (SELECT retail_sqft FROM store_sqft WHERE store.store_id = store_sqft.store_id)
 
 --Create store_size tabe
 CREATE TABLE store_sqft(
@@ -525,9 +528,51 @@ CREATE TABLE store_sqft(
 	retail_sqft decimal
 	)
 	
+select * from store as s
+LEFT JOIN store_sqft as e
+ON s.store_id = e.store_id
+WHERE s.retail_sqft IS NOT NULL AND s.county != e.county
+ORDER BY s.store_id
+
 -- import table data
 COPY store_sqft FROM 'C:\Users\Public\Iowa_store_squarefootage.csv'
 DELIMITER ','
 CSV HEADER
 ENCODING 'UTF8';
+
+-- Create license table
+CREATE table license as (
+SELECT license_id, store_id, license_cost from store_sqft
+ORDER BY license_id)
+
+-- Drop store_sqft table
+DROP table store_sqft
+
+--Create License table
+CREATE table license as (
+SELECT license_id, store_id, license_cost from store_sqft
+ORDER BY license_id)
+
+ALTER TABLE license
+ADD CONSTRAINT pk_license_id PRIMARY KEY (license_id) 
+
+ALTER TABLE license
+ADD CONSTRAINT fk_store_id FOREIGN KEY(store_id) REFERENCES store(store_id)
+
+
+--check if there is a mistmatch in store_id as there was error with applying foreign key constraint referencing license table to store table
+SELECT * from license AS l
+left join store as s
+on l.store_id = s.store_id
+where s.store_id is null
+
+-- Delete store_id values that exist in license table but don't exist in store table
+DELETE FROM license AS l
+WHERE NOT EXISTS (
+	SELECT * FROM store AS s
+    WHERE l.store_id = s.store_id);
+	
+Select * from orders
+limit 100
+
 
